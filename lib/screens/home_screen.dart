@@ -1,9 +1,12 @@
 import 'package:daraz/controller/product_controller.dart';
+import 'package:daraz/screens/category_grid.dart';
 import 'package:daraz/widgets/home_widgets/appbar.dart';
 import 'package:daraz/widgets/home_widgets/carousel.dart';
+import 'package:daraz/widgets/home_widgets/sticky_header.dart';
 import 'package:daraz/widgets/product/product_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sticky_headers/sticky_headers/widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -55,24 +58,34 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             Carousel(),
-            Obx(() => productCon.isLoading.value
-                ? const CircularProgressIndicator()
-                : GridView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    padding: const EdgeInsets.all(10),
-                    itemCount: productCon.productList.length,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            childAspectRatio: 0.9,
-                            mainAxisSpacing: 10,
-                            crossAxisSpacing: 10),
-                    itemBuilder: (context, index) {
-                      final item = productCon.productList[index];
-                      return ProductTile(item: item);
-                    },
-                  ))
+            CategoryGrid(),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset("assets/dummy/event.jpg")),
+            ),
+            StickyHeader(
+                header: const MyStickyHeader(),
+                // All products
+                content: Obx(() => productCon.isLoading.value
+                    ? const CircularProgressIndicator()
+                    : GridView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        padding: const EdgeInsets.all(10),
+                        itemCount: productCon.productList.length,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                childAspectRatio: 0.9,
+                                mainAxisSpacing: 10,
+                                crossAxisSpacing: 10),
+                        itemBuilder: (context, index) {
+                          final item = productCon.productList[index];
+                          return ProductTile(item: item);
+                        },
+                      ))),
           ],
         ),
       ),
