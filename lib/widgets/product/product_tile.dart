@@ -19,11 +19,13 @@ class ProductTile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Flexible(
+              child: Hero(
+            tag: "product_tile_image",
             child: Image.network(
               item.thumbnail!,
               fit: BoxFit.cover,
             ),
-          ),
+          )),
           Padding(
             padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
             child: Column(
@@ -37,7 +39,13 @@ class ProductTile extends StatelessWidget {
                   maxLines: 2,
                 ),
                 Rating(total: item.rating!),
+                const SizedBox(
+                  height: 5,
+                ),
                 const FreeDelivery(),
+                const SizedBox(
+                  height: 5,
+                ),
                 Row(
                   children: [
                     Text(

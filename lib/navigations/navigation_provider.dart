@@ -4,8 +4,8 @@ import 'package:daraz/screens/cart_screen.dart';
 import 'package:daraz/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
-class NavigationController extends StatelessWidget {
-  const NavigationController({super.key});
+class NavigationProvider extends StatelessWidget {
+  const NavigationProvider({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +14,13 @@ class NavigationController extends StatelessWidget {
         index: 0,
         children: pages,
       ),
-      bottomNavigationBar: const BottomNavigation(),
+      bottomNavigationBar: BottomNavigation(),
     );
   }
 }
 
-List<Widget> pages = [HomeScreen(), const CartScreen(), const AccountScreen()];
+List<Widget> pages = [
+  const HomeScreen(),
+  const CartScreen(),
+  const AccountScreen()
+];

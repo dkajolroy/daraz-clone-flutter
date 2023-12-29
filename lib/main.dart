@@ -1,4 +1,4 @@
-import 'package:daraz/navigations/navigation_controller.dart';
+import 'package:daraz/navigations/navigation_provider.dart';
 import 'package:daraz/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeController.lightTheme,
       darkTheme: ThemeController.darkTheme,
       themeMode: ThemeMode.light,
-      home: const NavigationController(),
+      home: const NavigationProvider(),
     );
   }
 }

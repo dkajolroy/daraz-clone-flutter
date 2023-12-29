@@ -16,7 +16,9 @@ class ViewProductScreen extends StatelessWidget {
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                child: Image.network(item.thumbnail!),
+                child: Hero(
+                    tag: "product_tile_image",
+                    child: Image.network(item.thumbnail!)),
               ),
               Container(
                 width: double.infinity,

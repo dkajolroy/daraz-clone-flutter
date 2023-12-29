@@ -29,9 +29,11 @@ class _HomeScreenState extends State<HomeScreen> {
   void _updateScroll() {
     if (_scrollController.offset ==
         _scrollController.position.minScrollExtent) {
-      setState(() {
-        isActiveColor = true;
-      });
+      if (!isActiveColor) {
+        setState(() {
+          isActiveColor = true;
+        });
+      }
     } else if (isActiveColor) {
       setState(() {
         isActiveColor = false;

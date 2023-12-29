@@ -11,7 +11,7 @@ class MyStickyHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Padding(
-            padding: EdgeInsets.only(top: 10, right: 10, left: 10, bottom: 15),
+            padding: EdgeInsets.only(top: 20, right: 10, left: 10, bottom: 15),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

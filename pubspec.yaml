@@ -38,6 +38,7 @@ dependencies:
   flutter_image_slideshow: ^0.1.6
   sticky_headers: ^0.3.0+2
   http: ^1.1.2
+  awesome_bottom_bar: ^1.2.4
 
 dev_dependencies:
   flutter_test:
